@@ -8,6 +8,10 @@ console.log(hour);
 // Print current date 
 $("#currentDay").text(date);
 
+// Set up timeblocks
+for (let i = 9; i < 18; i++) {
+}
+
 // Use the For Loop to determine if current time has past certain hours of the workday; passed hours will be colored gray 
 // var i = 0;
 // Element ID = i;
