@@ -1,4 +1,12 @@
-// Get current time and date from Moment.js
+// Get current date and hour from Moment.js
+var date = moment().format('MMMM Do YYYY');
+var hour = moment().format('HH');
+var today = moment();
+console.log(date);
+console.log(hour);
+
+// Print current date 
+$("#currentDay").text(date);
 
 // Use the For Loop to determine if current time has past certain hours of the workday; passed hours will be colored gray 
 // var i = 0;
@@ -10,4 +18,5 @@
 // Add a click event on a parent element that can listen to my save buttons clicks
 
 //
+
 
