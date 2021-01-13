@@ -14,7 +14,7 @@ for (let i = 9; i < 18; i++) {
     row.attr('class','row');
     
     var workHour = $('<div>');
-    workHour.attr('class', 'hour col-2 d-flex align-items-center');
+    workHour.attr('class', 'hour col-2 d-flex justify-content-center align-items-center');
     // If else statements ensure that the working hour is printed in standard (12 hour clock) time
     if (i<12) {
         workHour.text(i+" am");
@@ -31,10 +31,9 @@ for (let i = 9; i < 18; i++) {
     workPlan.attr('id', i);
 
     var saveButton = $('<div>');
-    saveButton.attr('class', 'saveBtn col-2');
+    saveButton.attr('class', 'saveBtn col-2 d-flex justify-content-center align-items-center');
     var saveIcon = $('<i>');
-    saveIcon.attr('class', 'fas fa-save d-flex justify-content-center');
-    saveIcon.css('padding','25px');
+    saveIcon.attr('class', 'fas fa-save');
 
     // append created elements to the correct parent 
     container.append(row);
@@ -58,6 +57,5 @@ for (let i = 9; i < 18; i++) {
 
 // Add a click event on a parent element that can listen to my save buttons clicks
 
-//
 
 
