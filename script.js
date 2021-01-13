@@ -9,7 +9,12 @@ console.log(hour);
 $("#currentDay").text(date);
 
 // Set up timeblocks
+var container = $('.container');
+
 for (let i = 9; i < 18; i++) {
+    var row = $('<div>');
+    row.attr('id',i);
+    container.append(row);
 }
 
 // Use the For Loop to determine if current time has past certain hours of the workday; passed hours will be colored gray 
