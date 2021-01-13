@@ -14,7 +14,7 @@ for (let i = 9; i < 18; i++) {
     row.attr('class','row');
     
     var workHour = $('<div>');
-    workHour.attr('class', 'hour col-2');
+    workHour.attr('class', 'hour col-2 d-flex align-items-center');
     // If else statements ensure that the working hour is printed in standard (12 hour clock) time
     if (i<12) {
         workHour.text(i+" am");
@@ -32,10 +32,14 @@ for (let i = 9; i < 18; i++) {
 
     var saveButton = $('<div>');
     saveButton.attr('class', 'saveBtn col-2');
+    var saveIcon = $('<i>');
+    saveIcon.attr('class', 'fas fa-save d-flex justify-content-center');
+    saveIcon.css('padding','25px');
 
     // append created elements to the correct parent 
     container.append(row);
     row.append(workHour, workPlan, saveButton);
+    saveButton.append(saveIcon);
 }
 
 // For Loop determines current time, future time, and past time and assigns a color 
