@@ -34,6 +34,7 @@ for (let i = 9; i < 18; i++) {
     saveButton.attr('class', 'saveBtn col-2 d-flex justify-content-center align-items-center');
     var saveIcon = $('<i>');
     saveIcon.attr('class', 'fas fa-save');
+    saveIcon.addClass(i.toString());
 
     // append created elements to the correct parent 
     container.append(row);
@@ -41,7 +42,7 @@ for (let i = 9; i < 18; i++) {
     saveButton.append(saveIcon);
 }
 
-// For Loop determines current time, future time, and past time and assigns a color 
+// For Loop assigns a color for each hour block based on past, present and future
 for (let i = 9; i < 18; i++) {
     var j = i.toString();
     if (i<hour) {
@@ -55,7 +56,30 @@ for (let i = 9; i < 18; i++) {
     }
 }
 
-// Add a click event on a parent element that can listen to my save buttons clicks
+// Set up local storage and click event 
+for (let i = 9; i < 18; i++) {
+    localStorage.setItem("to-do-" + i, "Fill in your to-do items here!");
+}
 
+// Event Listener updates local storage with User input
+
+// Display to-do items from local storage
+function displayToDo() {
+    for (let i = 9; i < 18; i++) {
+        var getText = localStorage.getItem("to-do-" + i);
+        $('#'+i).text(getText);        
+    }
+} 
+
+displayToDo();
+
+
+
+// addButton.addEventListener("click", function() {
+//   count++;
+//   counter.textContent = count;
+
+//   localStorage.setItem("count", count);
+// });
 
 
