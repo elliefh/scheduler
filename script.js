@@ -35,7 +35,7 @@ function createPlanner() {
         workPlan.attr('id', i);
 
         // 3) button to save user input 
-        var saveButton = $('<button>');
+        var saveButton = $('<div>');
         saveButton.attr('class', 'saveBtn col-2 d-flex justify-content-center align-items-center');
         var saveIcon = $('<i>');
         saveIcon.attr('class', 'fas fa-save');
