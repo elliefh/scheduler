@@ -1,8 +1,10 @@
-// Get current date and hour from Moment.js
-var date = moment().format('MMMM Do YYYY');
-var hour = moment().format('HH');
-// Print current date 
-$("#currentDay").text(date);
+// Function gets current date and hour from Moment.js
+function getDate() {
+    var date = moment().format('MMMM Do YYYY');
+    console.log("Today's date is " + date);
+    // Print current date 
+    $("#currentDay").text(date);
+}
 
 // Function creates the Work Day Planner, which includes 1) a section displaying the hour, 2) a text area to input to-do items, and 3) a save button 
 function createPlanner() {
@@ -47,16 +49,22 @@ function createPlanner() {
 
 // Function assigns a color for each hour block based on past, present and future
 function colorCode() {
+    var hour = moment().format('HH');
+    console.log("The current hour is " + hour);
+
     for (let i = 9; i < 18; i++) {
         var j = i.toString();
         if (i<hour) {
             $('#'+j).addClass('past');
+            console.log("hour " + i + " is in the past!");
+        }
+        else if (i>hour) {
+            $('#'+j).addClass('future');
+            console.log("hour " + i + " is in the future!");
         }
         else if (i=hour) {
             $('#'+j).addClass('present');
-        }
-        else {
-            $('#'+j).addClass('future');
+            console.log("hour " + i + " is in the present!");
         }
     } 
 }
@@ -64,7 +72,9 @@ function colorCode() {
 // Function saves new inputs and updates local storage 
 function saveInput(event) {
     event.preventDefault();
-    alert("Saved!");
+
+    console.log("Input updated for hour " + $(this).parent().prev().attr('id') + " with input: " + $(this).parent().prev().val());
+
     var newInput = $(this).parent().prev().val();
     var inputHour = $(this).parent().prev().attr('id');
     localStorage.setItem("to-do-" + inputHour, newInput);
@@ -84,6 +94,7 @@ function displayToDo() {
 } 
 
 // Call Functions and Event Listener
+getDate();
 createPlanner();
 colorCode();
 displayToDo();
