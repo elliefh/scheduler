@@ -24,7 +24,7 @@ body {
     background-color: #6b9080;
     color: #F6FFF8;
     border-radius: 0;
-    border-bottom: 10px solid #2B3B34;
+    border-bottom: 10px solid #455F53;
   }
   
   .description{
@@ -72,4 +72,23 @@ body {
   .saveBtn i:hover {
     font-size: 25px;
     transition: all .3s ease-in-out;
+  }
+
+  .color-code {
+    font-family: 'Indie Flower', cursive;
+  }
+
+  #past-btn {
+    background-color: #EAF4F4;
+    color: black;
+  }
+
+  #present-btn {
+    background-color: #F7FFDD;
+    color: black;
+  }
+
+  #future-btn {
+    background-color: #A4C3B2;
+    color: black;
   }

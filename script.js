@@ -4,6 +4,7 @@ function getDate() {
     console.log("Today's date is " + date);
     // Print current date 
     $("#currentDay").text(date);
+    $("#currentDay").css("font-family", "'Staatliches', cursive");
 }
 
 // Function creates the Work Day Planner, which includes 1) a section displaying the hour, 2) a text area to input to-do items, and 3) a save button 
