@@ -32,7 +32,7 @@ function createPlanner() {
         workPlan.attr('id', i);
 
         // 3) button to save user input 
-        var saveButton = $('<div>');
+        var saveButton = $('<button>');
         saveButton.attr('class', 'saveBtn col-2 d-flex justify-content-center align-items-center');
         var saveIcon = $('<i>');
         saveIcon.attr('class', 'fas fa-save');
@@ -61,22 +61,21 @@ function colorCode() {
     } 
 }
 
-// // Set up local storage and default text assigned to each hour
-// for (let i = 9; i < 18; i++) {
-//     localStorage.setItem("to-do-" + i, "Fill in your to-do items here!");
-// }
+// Function saves new inputs and updates local storage 
+function saveInput(event) {
+    event.preventDefault();
+    alert("Saved!");
+    var newInput = $(this).parent().prev().val();
+    var inputHour = $(this).parent().prev().attr('id');
+    localStorage.setItem("to-do-" + inputHour, newInput);
+}
 
-// Event Listener updates local storage with User input
-// saveButton.addEventListener("click", function() {
-//     localStorage.setItem("to-do-"+i, "Oh hello!");
-// });
-
-// Display to-do items from local storage
+// Function displays to-do items from local storage
 function displayToDo() {
     for (let i = 9; i < 18; i++) {
         var getText = localStorage.getItem("to-do-" + i);
         if (getText === null) {
-            $('#'+i).text("Fill in your to-do items here!");        
+            $('#'+i).text("");        
         } 
         else {
             $('#'+i).text(getText);        
@@ -84,17 +83,10 @@ function displayToDo() {
     }
 } 
 
+// Call Functions and Event Listener
 createPlanner();
 colorCode();
 displayToDo();
-
-
-
-// addButton.addEventListener("click", function() {
-//   count++;
-//   counter.textContent = count;
-
-//   localStorage.setItem("count", count);
-// });
+$('.container').on("click", "i", saveInput);
 
 
